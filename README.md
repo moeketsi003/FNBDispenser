@@ -7,3 +7,5 @@
 3 Run the application on Glassfish 4
 
 4 This application behaves as both a web service and a frontend service
+
+Username & password: assignment
