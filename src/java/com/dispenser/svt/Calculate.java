@@ -97,34 +97,33 @@ public class Calculate extends AbstractServlet {
         double remaining5 = remaining4 == 0 ? 0 : remaining4 % 5;
         
         Breakdown b6 = new Breakdown("R2");
-        b6.setCount((int)(remaining5 / 1));
+        b6.setCount((int)(remaining5 / 2));
         counts.add(b6);
-        double remaining6 = remaining5 == 0 ? 0 : remaining5 % 1;
+        double remaining6 = remaining5 == 0 ? 0 : remaining5 % 2;
         
-        Breakdown b10 = new Breakdown("R1");
-        b10.setCount((int)(remaining6 / 1));
-        counts.add(b10);
-        double remaining10 = remaining6 == 0 ? 0 : remaining6 % 1;
-        
-        Breakdown b7 = new Breakdown("50c");
-        b7.setCount((int)(remaining10 / 0.5));
+        Breakdown b7 = new Breakdown("R1");
+        b7.setCount((int)(remaining6 / 1));
         counts.add(b7);
-        double remaining7 = remaining10 == 0 ? 0 : remaining10 % 0.5;
+        double remaining7 = remaining6 == 0 ? 0 : remaining6 % 1;
         
-        Breakdown b8 = new Breakdown("20c");
-        b8.setCount((int)(remaining7 / 0.2));
+        Breakdown b8 = new Breakdown("50c");
+        b8.setCount((int)(remaining7 / 0.5));
         counts.add(b8);
-        double remaining8 = remaining7 == 0 ? 0 : remaining7 % 0.2;
+        double remaining8 = remaining7 == 0 ? 0 : remaining7 % 0.5;
         
-        Breakdown b9 = new Breakdown("10c");
-        b9.setCount((int)(remaining8 / 0.1));
+        Breakdown b9 = new Breakdown("20c");
+        b9.setCount((int)(remaining8 / 0.2));
         counts.add(b9);
-        double remaining9 = remaining8 == 0 ? 0 : remaining8 % 0.1;
+        double remaining9 = remaining8 == 0 ? 0 : remaining8 % 0.2;
+        
+        Breakdown b10 = new Breakdown("10c");
+        b10.setCount((int)(remaining9 / 0.1));
+        counts.add(b10);
+        double remaining10 = remaining9 == 0 ? 0 : remaining9 % 0.1;
         
         Breakdown b0 = new Breakdown("5c");
-        b0.setCount((int)(remaining9 / 0.05));
+        b0.setCount((int)(remaining10 / 0.05));
         counts.add(b0);
-        //double remaining0 = remaining9 == 0 ? 0 : remaining9 % 0.05;
         
         Change totalChange = new Change();
         totalChange.setChangeBreakdown(counts);
