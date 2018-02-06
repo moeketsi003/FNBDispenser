@@ -46,10 +46,10 @@
                     url: '/WSDispenseSvc/UserLogin?username=' + username + '&password=' + pass,
                     dataType: 'json',
                     success: function (responseData, textStatus, jqXHR) {
-                        if (null == responseData) {
+                        if (null === responseData) {
                             alert("Login error. Please try again.");
                         } else {
-                            if (responseData.key == "OK"){
+                            if (responseData.key === "OK"){
                                 $("#username").val("");
                                 $("#password").val("");
                                 $("#login").hide();
@@ -75,10 +75,10 @@
                     url: '/WSDispenseSvc/Dispense?snack_type=' + value,
                     dataType: 'json',
                     success: function (responseData, textStatus, jqXHR) {
-                        if (null == responseData) {
+                        if (null === responseData) {
                             alert("Dispensing error. Please try again.");
                         } else {
-                            if (responseData.key == "OK"){
+                            if (responseData.key === "OK"){
                                 $("#cost").html(responseData.value);
                             } else {
                                 alert(responseData.Value);
@@ -111,18 +111,18 @@
                                 $("#dispenser").hide();
                                 $("#dispenserOutput").show();
                                 
-                                var totalChage = responseData.value;
-                                var breakdowns = totalChage.changeBreakdown;
+                                var totalChangeObj = responseData.value;
+                                var breakdowns = totalChangeObj.changeBreakdown;
                                 if (null === breakdowns || breakdowns.length === 0){
                                     alert("Dispensing error. Please try again.");
                                 } else {
                                     var brkString = "";
                                     for (var x = 0; x < breakdowns.length; x++){
                                         if (breakdowns[x].count > 0)
-                                            brkString += breakdowns[x].count + " X " + breakdowns[x].note + "<br/>"
+                                            brkString += breakdowns[x].count + " x " + breakdowns[x].note + "<br/>";
                                     }
                                     $("#breakdown").html(brkString);
-                                    $("#totalChange").html(totalChange.totalChange);
+                                    $("#totalChange").html(totalChangeObj.totalChange);
                                 }
                             } else {
                                 alert(responseData.value);
@@ -210,14 +210,18 @@
                             
                         </div>
                         <div id="dispenserOutput" class="col_ful" style="background-color: white; display:none;">
-                            <div id="dispenser" class="col_ful">
+                            <div class="col_ful">
                                 <p>Breakdown of cash to dispense is: </p>
                             </div>
                             
-                            <div id="dispenser" class="col_ful">
+                            <div class="col_ful">
                                 <span id="breakdown">
                                     
                                 </span>
+                            </div>
+                            <div class="col_ful">
+                                <p>Total Change:
+                                <span id="totalChange"></span></p>
                             </div>
                             <div class="col_ful">
                                 <div class="col_med">
